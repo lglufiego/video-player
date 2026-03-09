@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+  <title>Video Player</title>
+</head>
+
+<body>
+  <div class="section">
+    <div class="container">
+      <div id="video_player">
+        <video src="./media/video.mp4" id="main_video"></video>
+        <div class="progressAreaTime"></div>
+        <div class="controls">
+          <div class="progress-area">
+            <div class="progress-bar">
+              <span></span>
+            </div>
+          </div>
+          <div class="controls-list">
+            <div class="controls-left">
+              <span class="icon">
+                <span class="material-icons fast-rewind">replay_10</span>
+              </span>
+              <span class="icon">
+                <span class="material-icons">play_arrow</span>
+              </span>
+              <span class="icon">
+                <span class="material-icons fast-forward">forward_10</span>
+              </span>
+              <span class="icon">
+                <span class="material-icons volume">volume_up</span>
+                <input type="range" min="0" max="100" class="volume_range">
+              </span>
+              <div class="timer">
+                <span class="current">0:00</span> / <span class="duration">0:00</span>
+              </div>
+            </div>
+            <div class="controls-right">
+              <span class="icon">
+                <span class="material-icons auto-play"></span>
+              </span>
+              <span class="icon">
+                <span class="material-icons settingsBtn">settings</span>
+              </span>
+              <span class="icon">
+                <span class="material-icons picture_in_picture">picture_in_picture_alt</span>
+              </span>
+              <span class="icon">
+                <span class="material-icons fullscreen">fullscreen</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="settings">
+          <div class="playback">
+            <span>Playback Speed</span>
+            <ul>
+              <li data-speed="0.25">0.25x</li>
+              <li data-speed="0.5">0.5x</li>
+              <li data-speed="0.75">0.75x</li>
+              <li data-speed="1" class="active">Normal</li>
+              <li data-speed="1.25">1.25x</li>
+              <li data-speed="1.5">1.5x</li>
+              <li data-speed="1.75">1.75x</li>
+              <li data-speed="2">2x</li>
+            </ul>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+
+</html>
