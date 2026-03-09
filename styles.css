@@ -147,10 +147,10 @@ section {
   height: 3px;
   background: #fff;
   color: #fff;
+  cursor: pointer;
   outline: none;
   border: none;
   transition: 0.4s;
-  cursor: pointer;
 }
 
 .controls .icon .volume_range::-webkit-slider-thumb {
@@ -176,6 +176,33 @@ section {
 .controls .icon:hover .volume_range::-webkit-slider-thumb {
   opacity: 1;
   pointer-events: auto;
+  transition: 0.5s;
 }
 
-/* 24:00 */
+.controls-right .icon .auto-play {
+  width: 30px;
+  height: 10px;
+  border-radius: 20px;
+  position: relative;
+  margin-right: 8px !important;
+  background: #b6b6b6;
+}
+
+.controls-right .icon .auto-play::before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 17px;
+  height: 17px;
+  line-height: 17px;
+  background: #727272;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+/*26:28*/
