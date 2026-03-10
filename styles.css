@@ -14,7 +14,7 @@
 }
 
 body {
-  background-color: #002333;
+  background-color: #3579f7d0;
 }
 
 section {
@@ -189,7 +189,7 @@ section {
 }
 
 .controls-right .icon .auto-play::before {
-  content: '';
+  content: '\e034';
   position: absolute;
   left: -5px;
   top: 50%;
@@ -205,4 +205,82 @@ section {
   border-radius: 50%;
 }
 
-/*26:28*/
+.controls-right .icon .auto-play.active::before {
+  content: '\e037';
+  left: 15px;
+  font-family: "Material Icons";
+}
+
+.controls-right .icon .material-icons.settingsBtn {
+  font-size: 24px;
+  transition: 0.3s;
+}
+
+.controls-right .icon .settingsBtn.active {
+  transform: rotate(45deg);
+}
+
+#video_player #settings {
+  position: absolute;
+  right: 25px;
+  bottom: 62px;
+  background: rgb(28 28 28/ 80%);
+  width: 200px;
+  height: 250px;
+  color: #fff;
+  overflow-y: scroll;
+  z-index: 20;
+}
+
+#video_player #settings .playback span {
+  font-size: 14px;
+  font-weight: 300;
+  padding: 15px 30px;
+  display: block;
+  border-bottom: 1px solid rgb(83 83 83);
+}
+
+#video_player #settings .playback ul {
+  position: relative;
+}
+
+#video_player #settings .playback ul li {
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+  text-align: left;
+  padding: 12px 33px;
+  display: block;
+  font-size: 14px;
+}
+
+#video_player #settings .playback ul li:hover {
+  background: rgb(28 28 28/ 0.9);
+}
+
+#video_player #settings .playback ul li.active::before {
+  content: '\e876';
+  font-family: "Material Icons";
+  position: absolute;
+  left: 7px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding-right: 10px;
+  font-size: 18px;
+}
+
+
+#video_player #settings::-webkit-scrollbar {
+  width: 8px;
+  background: transparent;
+}
+
+#video_player #settings::-webkit-scrollbar-thumb {
+  height: 20px;
+  border: 2px solid transparent;
+  background: rgba(83, 83, 83, 0.9);
+}
+
+
+
+/* 33:42 */
