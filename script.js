@@ -10,7 +10,7 @@ const fast_forward = video_player.querySelector(".fast-forward")
 const volume = video_player.querySelector(".volume")
 const volume_range = video_player.querySelector(".volume_range")
 const current = video_player.querySelector(".current")
-const duration = video_player.querySelector(".duration")
+const totalDuration = video_player.querySelector(".duration")
 const auto_play = video_player.querySelector(".auto-play")
 const settingsBtn = video_player.querySelector(".settingsBtn")
 const picture_in_picture = video_player.querySelector(".picture_in_picture")
@@ -19,7 +19,6 @@ const settings = video_player.querySelector("#settings")
 const playback = video_player.querySelector("#playback")
 
 // Play video function
-
 function playVideo() {
   play_pause.innerHTML = "pause";
   play_pause.title = "play";
@@ -28,7 +27,6 @@ function playVideo() {
 }
 
 // Play video function
-
 function pauseVideo() {
   play_pause.innerHTML = "play_arrow";
   play_pause.title = "pause";
@@ -37,21 +35,40 @@ function pauseVideo() {
 }
 
 // Play video function
-
 play_pause.addEventListener("click", () => {
   const isVideoPaused = video_player.classList.contains("paused");
 
   isVideoPaused ? pauseVideo() : playVideo();
 });
 
-// fast_rewind video function
 
+// fast_rewind video function
 fast_rewind.addEventListener("click", () => {
   mainVideo.currentTime -= 10;
 });
 
 // fast_forward video function
-
 fast_forward.addEventListener("click", () => {
   mainVideo.currentTime += 10;
 });
+
+// Load video duration
+mainVideo.addEventListener("loadeddata", (e) => {
+  let videoDuration = e.target.duration;
+  let totalMin = Math.floor(videoDuration / 60);
+  let totalSec = Math.floor(videoDuration % 60);
+
+  // if seconds are less than 10 then add 0 at thes beginning
+  totalSec < 10 ? totalSec = "0" + totalSec : totalSec;
+  totalDuration.innerHTML = `${totalMin} : ${totalSec}`
+})
+
+//current video duration
+mainVideo.addEventListener('timeupdate', (e) => {
+  let currentVideoTime = e.target.currentTime;
+  let currentMin = Math.floor(currentVideoTime / 60);
+  let currentSec = Math.floor(currentVideoTime % 60);
+  //if seconds are less than 10 add 0 at the beginning
+  currentSec < 10 ? currentSec = "0" + currentSec : currentSec;
+  current.innerHTML = `${currentMin} : ${currentSec}`
+})
