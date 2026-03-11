@@ -1,5 +1,5 @@
 const video_player = document.querySelector("#video_player")
-const mainVideo = video_player.querySelector("#main-video")
+const mainVideo = video_player.querySelector("#main_video")
 const pogressionAreaTime = video_player.querySelector(".progressAreaTime")
 const controls = video_player.querySelector(".controls")
 const progressArea = video_player.querySelector(".progress-area")
@@ -18,12 +18,16 @@ const fullscreen = video_player.querySelector(".fullscreen")
 const settings = video_player.querySelector("#settings")
 const playback = video_player.querySelector("#playback")
 
+// Play video function
+
 function playVideo() {
   play_pause.innerHTML = "pause";
   play_pause.title = "play";
   video_player.classList.add("paused");
   mainVideo.play();
 }
+
+// Play video function
 
 function pauseVideo() {
   play_pause.innerHTML = "play_arrow";
@@ -32,8 +36,22 @@ function pauseVideo() {
   mainVideo.pause();
 }
 
+// Play video function
+
 play_pause.addEventListener("click", () => {
-  playVideo()
+  const isVideoPaused = video_player.classList.contains("paused");
+
+  isVideoPaused ? pauseVideo() : playVideo();
 });
 
-// 41:31
+// fast_rewind video function
+
+fast_rewind.addEventListener("click", () => {
+  mainVideo.currentTime -= 10;
+});
+
+// fast_forward video function
+
+fast_forward.addEventListener("click", () => {
+  mainVideo.currentTime += 10;
+});
