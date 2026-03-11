@@ -71,4 +71,9 @@ mainVideo.addEventListener('timeupdate', (e) => {
   //if seconds are less than 10 add 0 at the beginning
   currentSec < 10 ? currentSec = "0" + currentSec : currentSec;
   current.innerHTML = `${currentMin} : ${currentSec}`
+
+  videoDuration = e.target.duration
+  //progression bar width change
+  let progressWidth = (currentVideoTime / videoDuration) * 100;
+  progress_Bar.style.width = `${progressWidth}%`;
 })
