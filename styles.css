@@ -83,8 +83,8 @@ section {
 
 .controls .progress-area .progress-bar {
   position: relative;
-  width: 50%;
-  background: rgb(255, 174, 0);
+  width: 0%;
+  background: rgb(162, 0, 255);
   height: inherit;
   border-radius: inherit;
   cursor: pointer;
@@ -99,7 +99,7 @@ section {
   right: -5px;
   top: 50%;
   transform: translateY(-50%);
-  background: rgb(255, 174, 0)
+  background: rgb(162, 0, 255);
 }
 
 .controls .controls-list {

@@ -77,3 +77,19 @@ mainVideo.addEventListener('timeupdate', (e) => {
   let progressWidth = (currentVideoTime / videoDuration) * 100;
   progress_Bar.style.width = `${progressWidth}%`;
 })
+
+// Video ended
+mainVideo.addEventListener('ended', () => {
+  play_pause.innerHTML = "play_arrow";
+  play_pause.title = "play";
+  video_player.classList.remove("paused");
+})
+
+// Update video based on progress bar
+progressArea.addEventListener("click", (e) => {
+  let videoDuration = mainVideo.duration;
+  let progressWidthVal = progressArea.clientWidth;
+  let clickOffsetX = progressArea.offsetX;
+
+  mainVideo.currentTime = (clickOffsetX / progressWidthVal) * videoDuration;
+})
