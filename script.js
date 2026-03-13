@@ -93,3 +93,5 @@ progressArea.addEventListener("click", (e) => {
 
   mainVideo.currentTime = (clickOffsetX / progressWidthVal) * videoDuration;
 })
+
+// 51:00
