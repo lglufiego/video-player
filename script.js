@@ -78,6 +78,13 @@ mainVideo.addEventListener('timeupdate', (e) => {
   progress_Bar.style.width = `${progressWidth}%`;
 })
 
+progressArea.addEventListener('click', (e) => {
+  let videoDuration = mainVideo.duration;
+  let progressWidthval = progressArea.clientWidth;
+  let ClickOffsetX = e.offsetX;
+  mainVideo.currentTime = (ClickOffsetX / progressWidthval) * videoDuration;
+})
+
 // Video ended
 mainVideo.addEventListener('ended', () => {
   play_pause.innerHTML = "play_arrow";
@@ -85,13 +92,36 @@ mainVideo.addEventListener('ended', () => {
   video_player.classList.remove("paused");
 })
 
-// Update video based on progress bar
-progressArea.addEventListener("click", (e) => {
-  let videoDuration = mainVideo.duration;
-  let progressWidthVal = progressArea.clientWidth;
-  let clickOffsetX = progressArea.offsetX;
+// change volume
+function changeVolume() {
+  mainVideo.volume = volume_range.value / 100;
+  if (volume_range.value == 0) {
+    volume.innerHTML = 'volume_off';
+  } else if (volume_range.value < 40) {
+    volume.innerHTML = 'volume_down';
+  } else {
+    volume.innerHTML = 'volume_up';
+  }
+}
 
-  mainVideo.currentTime = (clickOffsetX / progressWidthVal) * videoDuration;
+function muteVolume() {
+  if (volume_range.value == 0) {
+    volume_range.value == 80;
+    mainVideo.volume = 0.8;
+    volume.innerHTML = 'volume_up';
+  } else {
+    volume_range.value = 0;
+    mainVideo.volume = 0;
+    volume.innerHTML = 'volume_off';
+  }
+
+}
+
+volume_range.addEventListener('change', () => {
+  changeVolume();
 })
 
-// 51:00
+volume.addEventListener('click', () => {
+  muteVolume();
+  //needs fixing. when volume is 0 and we click on the volume icon, it should set the volume to 80 but it is not working. also when we click on the volume icon again it should set the volume to 0 but it is not working.
+})
