@@ -106,7 +106,7 @@ function changeVolume() {
 
 function muteVolume() {
   if (volume_range.value == 0) {
-    volume_range.value == 80;
+    volume_range.value = 80;
     mainVideo.volume = 0.8;
     volume.innerHTML = 'volume_up';
   } else {
@@ -123,5 +123,5 @@ volume_range.addEventListener('change', () => {
 
 volume.addEventListener('click', () => {
   muteVolume();
-  //needs fixing. when volume is 0 and we click on the volume icon, it should set the volume to 80 but it is not working. also when we click on the volume icon again it should set the volume to 0 but it is not working.
+
 })
