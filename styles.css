@@ -64,15 +64,28 @@ section {
 
 #video_player .progressAreaTime {
   position: absolute;
-  padding: 5px 10px;
+  left: var(--x);
   bottom: 60px;
+  transform: translateX(-50%);
+  padding: 5px 10px;
   color: #fff;
   font-size: 14px;
   background: #002333;
   border-radius: 5px;
   z-index: 1;
+  display: none;
+}
 
-
+#video_player .progressAreaTime::before {
+  content: '';
+  position: absolute;
+  bottom: -40%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background: #002333;
+  width: 15px;
+  height: 15px;
+  z-index: -1;
 }
 
 .container #video_player .controls {

@@ -1,6 +1,6 @@
 const video_player = document.querySelector("#video_player")
 const mainVideo = video_player.querySelector("#main_video")
-const pogressionAreaTime = video_player.querySelector(".progressAreaTime")
+const progressAreaTime = video_player.querySelector(".progressAreaTime")
 const controls = video_player.querySelector(".controls")
 const progressArea = video_player.querySelector(".progress-area")
 const progress_Bar = video_player.querySelector(".progress-bar")
@@ -124,4 +124,12 @@ volume_range.addEventListener('change', () => {
 volume.addEventListener('click', () => {
   muteVolume();
 
+})
+
+// update progress area time and display block on mouse
+progressArea.addEventListener('mousemove', (e) => {
+  let progressWidthval = e.clientWidth;
+  let x = e.offsetX;
+  progressAreaTime.style.setProperty('--x', `${x}px`);
+  progressAreaTime.style.display = 'block';
 })
