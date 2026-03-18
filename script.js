@@ -133,3 +133,7 @@ progressArea.addEventListener('mousemove', (e) => {
   progressAreaTime.style.setProperty('--x', `${x}px`);
   progressAreaTime.style.display = 'block';
 })
+
+progressArea.addEventListener('mouseleave', () => {
+  progressAreaTime.style.display = 'none';
+})
