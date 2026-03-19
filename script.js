@@ -155,3 +155,13 @@ auto_play.addEventListener('click', () => {
   }
 });
 
+mainVideo.addEventListener('ended', () => {
+  if (auto_play.classList.contains('active')) {
+    playVideo();
+  }
+  else {
+    play_pause.innerHTML = "replay";
+    play_pause.title = "Replay";
+
+  }
+})
