@@ -65,8 +65,10 @@ section {
 #video_player .progressAreaTime {
   position: absolute;
   left: var(--x);
-  bottom: 60px;
   transform: translateX(-50%);
+  bottom: 60px;
+  min-width: 60px;
+  text-align: center;
   padding: 5px 10px;
   color: #fff;
   font-size: 14px;
