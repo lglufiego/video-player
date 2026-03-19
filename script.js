@@ -61,7 +61,7 @@ mainVideo.addEventListener("loadeddata", (e) => {
   // if seconds are less than 10 then add 0 at thes beginning
   totalSec < 10 ? totalSec = "0" + totalSec : totalSec;
   totalDuration.innerHTML = `${totalMin} : ${totalSec}`
-})
+});
 
 //current video duration
 mainVideo.addEventListener('timeupdate', (e) => {
@@ -76,21 +76,21 @@ mainVideo.addEventListener('timeupdate', (e) => {
   //progression bar width change
   let progressWidth = (currentVideoTime / videoDuration) * 100;
   progress_Bar.style.width = `${progressWidth}%`;
-})
+});
 
 progressArea.addEventListener('click', (e) => {
   let videoDuration = mainVideo.duration;
   let progressWidthval = progressArea.clientWidth;
   let ClickOffsetX = e.offsetX;
   mainVideo.currentTime = (ClickOffsetX / progressWidthval) * videoDuration;
-})
+});
 
 // Video ended
 mainVideo.addEventListener('ended', () => {
   play_pause.innerHTML = "play_arrow";
   play_pause.title = "play";
   video_player.classList.remove("paused");
-})
+});
 
 // change volume
 function changeVolume() {
@@ -114,26 +114,44 @@ function muteVolume() {
     mainVideo.volume = 0;
     volume.innerHTML = 'volume_off';
   }
-
 }
 
 volume_range.addEventListener('change', () => {
   changeVolume();
-})
+});
 
 volume.addEventListener('click', () => {
   muteVolume();
 
-})
+});
 
 // update progress area time and display block on mouse
 progressArea.addEventListener('mousemove', (e) => {
-  let progressWidthval = e.clientWidth;
+  let progressWidthval = progressArea.clientWidth;
   let x = e.offsetX;
   progressAreaTime.style.setProperty('--x', `${x}px`);
   progressAreaTime.style.display = 'block';
-})
+
+  let videoDuration = mainVideo.duration;
+  let progressTime = Math.floor((x / progressWidthval) * videoDuration);
+  let currentMin = Math.floor(progressTime / 60);
+  let currentSec = Math.floor(progressTime % 60);
+  currentSec < 10 ? currentSec = "0" + currentSec : currentSec;
+  progressAreaTime.innerHTML = `${currentMin} : ${currentSec}`;
+});
 
 progressArea.addEventListener('mouseleave', () => {
   progressAreaTime.style.display = 'none';
-})
+});
+
+
+//autoplay
+auto_play.addEventListener('click', () => {
+  auto_play.classList.toggle('active');
+  if (auto_play.classList.contains('active')) {
+    auto_play.title = "Autoplay is on";
+  } else {
+    auto_play.title = "Autoplay is off";
+  }
+});
+
