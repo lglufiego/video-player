@@ -174,3 +174,15 @@ picture_in_picture.addEventListener('click', () => {
 });
 
 // fullscreen
+
+fullscreen.addEventListener('click', () => {
+  if (!video_player.classList.contains('openFullScreen')) {
+    video_player.classList.add('openFullScreen');
+    fullscreen.innerHTML = 'fullscreen_exit';
+    video_player.requestFullscreen();
+  } else {
+    video_player.classList.remove('openFullScreen');
+    fullscreen.innerHTML = 'fullscreen';
+    document.exitFullscreen();
+  }
+})
