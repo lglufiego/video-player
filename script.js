@@ -167,3 +167,8 @@ mainVideo.addEventListener('ended', () => {
 })
 
 // picture in picture 1.08h
+
+
+picture_in_picture.addEventListener('click', () => {
+  mainVideo.requestPictureInPicture();
+});
