@@ -166,9 +166,11 @@ mainVideo.addEventListener('ended', () => {
   }
 })
 
-// picture in picture 1.08h
+// picture in picture
 
 
 picture_in_picture.addEventListener('click', () => {
   mainVideo.requestPictureInPicture();
 });
+
+// fullscreen
