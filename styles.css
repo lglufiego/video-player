@@ -275,6 +275,11 @@ section {
   display: none;
 }
 
+#video_player #settings.active {
+  display: block;
+}
+
+
 #video_player #settings .playback span {
   font-size: 14px;
   font-weight: 300;

@@ -16,7 +16,7 @@ const settingsBtn = video_player.querySelector(".settingsBtn")
 const picture_in_picture = video_player.querySelector(".picture_in_picture")
 const fullscreen = video_player.querySelector(".fullscreen")
 const settings = video_player.querySelector("#settings")
-const playback = video_player.querySelector("#playback")
+const playback = video_player.querySelectorAll(".playback li")
 
 // Play video function
 function playVideo() {
@@ -185,4 +185,30 @@ fullscreen.addEventListener('click', () => {
     fullscreen.innerHTML = 'fullscreen';
     document.exitFullscreen();
   }
+});
+
+
+// open settings
+
+settingsBtn.addEventListener('click', () => {
+  settings.classList.toggle('active');
+  settingsBtn.classList.toggle('active');
+});
+
+
+// playback rate
+
+playback.forEach((event) => {
+  event.addEventListener('click', () => {
+    removeActiveClasses();
+    event.classList.add('active');
+    let speed = event.getAttribute('data-speed');
+    mainVideo.playbackRate = speed;
+  })
 })
+
+function removeActiveClasses() {
+  playback.forEach(event => {
+    event.classList.remove('active');
+  });
+}
