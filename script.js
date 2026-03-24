@@ -263,3 +263,20 @@ if (video_player.classList.contains('paused')) {
 } else {
   controls.classList.remove('active');
 }
+
+// mobile touch controls
+
+video_player.addEventListener('touchstart', () => {
+  controls.classList.add('active');
+  setTimeout(() => {
+    controls.classList.remove('active');
+  }, 3000);
+});
+
+video_player.addEventListener('touchmove', () => {
+  if (video_player.classList.contains('paused')) {
+    controls.classList.remove('active');
+  } else {
+    controls.classList.add('active');
+  }
+});
