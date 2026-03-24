@@ -104,7 +104,6 @@ section {
   transition: 0.3s;
 }
 
-
 .container #video_player .controls.active {
   transform: translateY(0);
 }
@@ -119,7 +118,7 @@ section {
 
 .controls .progress-area .progress-bar {
   position: relative;
-  width: 0%;
+  width: 50%;
   background: rgb(162, 0, 255);
   height: inherit;
   border-radius: inherit;
