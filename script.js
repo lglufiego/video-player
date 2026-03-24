@@ -229,3 +229,37 @@ window.addEventListener('load', () => {
     mainVideo.currentTime = getDuration;
   }
 });
+
+
+mainVideo.addEventListener('contextmenu', (e) => {
+  e.preventDefault();
+});
+
+
+// mouse over settings
+
+video_player.addEventListener('mouseover', () => {
+  controls.classList.add('active');
+});
+
+video_player.addEventListener('mouseleave', () => {
+  if (video_player.classList.contains('paused')) {
+    if (settingsBtn.classList.contains('active')) {
+      controls.classList.add('active');
+    } else {
+      controls.classList.remove('active');
+    }
+  } else {
+    controls.classList.remove('active');
+  }
+});
+
+if (video_player.classList.contains('paused')) {
+  if (settingsBtn.classList.contains('active')) {
+    controls.classList.add('active');
+  } else {
+    controls.classList.remove('active');
+  }
+} else {
+  controls.classList.remove('active');
+}
