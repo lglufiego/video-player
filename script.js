@@ -212,3 +212,20 @@ function removeActiveClasses() {
     event.classList.remove('active');
   });
 }
+
+
+// store video duration and video path in local storage
+
+window.addEventListener('unload', () => {
+  let setDuration = localStorage.setItem('duration', `${mainVideo.duration}`);
+  let setSrc = localStorage.setItem('src', `${mainVideo.getAttribute('src')}`);
+});
+
+window.addEventListener('load', () => {
+  let getDuration = localStorage.getItem('duration');
+  let getSrc = localStorage.getItem('src');
+  if (getSrc) {
+    mainVideo.src = getSrc;
+    mainVideo.currentTime = getDuration;
+  }
+});
