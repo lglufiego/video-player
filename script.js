@@ -4,6 +4,7 @@ const progressAreaTime = video_player.querySelector(".progressAreaTime")
 const controls = video_player.querySelector(".controls")
 const progressArea = video_player.querySelector(".progress-area")
 const progress_Bar = video_player.querySelector(".progress-bar")
+const bufferedBar = video_player.querySelector(".buffered-progress-bar")
 const fast_rewind = video_player.querySelector(".fast-rewind")
 const play_pause = video_player.querySelector(".play_pause")
 const fast_forward = video_player.querySelector(".fast-forward")
@@ -17,6 +18,16 @@ const picture_in_picture = video_player.querySelector(".picture_in_picture")
 const fullscreen = video_player.querySelector(".fullscreen")
 const settings = video_player.querySelector("#settings")
 const playback = video_player.querySelectorAll(".playback li")
+
+mainVideo.addEventListener('loadeddata', () => {
+  setInterval(() => {
+    let bufferedTime = mainVideo.buffered.end(0);
+    let duration = mainVideo.duration;
+    let width = (bufferedTime / duration) * 100;
+    bufferedBar.style.width = `${width}%`;
+    console.log(bufferedTime);
+  }, 500);
+});
 
 // Play video function
 function playVideo() {

@@ -112,11 +112,22 @@ section {
   width: 100%;
   height: 5px;
   margin: auto;
-  background: #f0f0f0f0;
+  background: #f0f0f07c;
   cursor: pointer;
 }
 
-.controls .progress-area .progress-bar {
+.progress-area .buffered-progress-bar {
+  position: absolute;
+  top: 0;
+  width: 100px;
+  height: inherit;
+  border-radius: inherit;
+  background: rgb(206, 206, 206);
+  cursor: pointer;
+  z-index: -1;
+}
+
+.progress-area .progress-bar {
   position: relative;
   width: 50%;
   background: rgb(162, 0, 255);
